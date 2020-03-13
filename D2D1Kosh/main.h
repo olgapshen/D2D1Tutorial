@@ -92,10 +92,3 @@ private:
         LPARAM lParam
     );
 };
-
-void main()
-{
-    DemoApp app;
-    app.Initialize();
-    app.RunMessageLoop();
-}

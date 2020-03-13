@@ -327,3 +327,10 @@ void DemoApp::OnResize(UINT width, UINT height)
         m_pRenderTarget->Resize(D2D1::SizeU(width, height));
     }
 }
+
+void main()
+{
+    DemoApp app;
+    app.Initialize();
+    app.RunMessageLoop();
+}
