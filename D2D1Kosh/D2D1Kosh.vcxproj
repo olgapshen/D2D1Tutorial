@@ -144,6 +144,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ChromaCat.cpp" />
+    <ClCompile Include="common.cpp" />
     <ClCompile Include="DemoApp.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>

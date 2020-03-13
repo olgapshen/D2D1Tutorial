@@ -1,12 +1,6 @@
 #include "common.h"
 #include "DemoApp.h"
-
-int WINAPI WinMain(
-    HINSTANCE /* hInstance */,
-    HINSTANCE /* hPrevInstance */,
-    LPSTR /* lpCmdLine */,
-    int /* nCmdShow */
-)
+int main()
 {
     // Use HeapSetInformation to specify that the process should
     // terminate if the heap manager detects an error in any heap used
@@ -30,9 +24,4 @@ int WINAPI WinMain(
     }
 
     return 0;
-}
-
-int main()
-{
-    return WinMain(NULL, NULL, NULL, 0);
 }

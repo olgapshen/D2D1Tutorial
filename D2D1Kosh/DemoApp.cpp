@@ -5,7 +5,9 @@ DemoApp::DemoApp() :
     m_pDirect2dFactory(NULL),
     m_pRenderTarget(NULL),
     m_pLightSlateGrayBrush(NULL),
-    m_pCornflowerBlueBrush(NULL)
+    m_pCornflowerBlueBrush(NULL),
+    m_pDXGIAdapter(NULL),
+    m_pD3Device(NULL)
 {
 }
 
@@ -15,7 +17,8 @@ DemoApp::~DemoApp()
     SafeRelease(&m_pRenderTarget);
     SafeRelease(&m_pLightSlateGrayBrush);
     SafeRelease(&m_pCornflowerBlueBrush);
-
+    SafeRelease(&m_pDXGIAdapter);
+    SafeRelease(&m_pD3Device);
 }
 
 void DemoApp::RunMessageLoop()
@@ -83,9 +86,18 @@ HRESULT DemoApp::CreateDeviceIndependentResources()
     HRESULT hr = S_OK;
 
     // Create a Direct2D factory.
-    hr = D2D1CreateFactory(D2D1_FACTORY_TYPE_SINGLE_THREADED, &m_pDirect2dFactory);
+    RET_HR(D2D1CreateFactory(D2D1_FACTORY_TYPE_SINGLE_THREADED, &m_pDirect2dFactory));
+    RET_HR(DXGI_AdapterByType(eGPU_NVidia, &m_pDXGIAdapter));
+    RET_HR(DX11_CreateDevice(m_pDXGIAdapter, &m_pD3Device));
 
     return hr;
+}
+
+void DemoApp::DiscardDeviceResources()
+{
+    SafeRelease(&m_pRenderTarget);
+    SafeRelease(&m_pLightSlateGrayBrush);
+    SafeRelease(&m_pCornflowerBlueBrush);
 }
 
 HRESULT DemoApp::CreateDeviceResources()
@@ -129,13 +141,6 @@ HRESULT DemoApp::CreateDeviceResources()
     }
 
     return hr;
-}
-
-void DemoApp::DiscardDeviceResources()
-{
-    SafeRelease(&m_pRenderTarget);
-    SafeRelease(&m_pLightSlateGrayBrush);
-    SafeRelease(&m_pCornflowerBlueBrush);
 }
 
 LRESULT CALLBACK DemoApp::WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)

@@ -20,6 +20,9 @@ private:
     ID2D1HwndRenderTarget* m_pRenderTarget;
     ID2D1SolidColorBrush* m_pLightSlateGrayBrush;
     ID2D1SolidColorBrush* m_pCornflowerBlueBrush;
+    IDXGIAdapter* m_pDXGIAdapter;
+    ID3D11Device* m_pD3Device;
+
 
 private:
     // Initialize device-independent resources.
