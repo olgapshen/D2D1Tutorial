@@ -138,9 +138,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="main.h" />
+    <ClInclude Include="ChromaCat.h" />
+    <ClInclude Include="common.h" />
+    <ClInclude Include="DemoApp.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ChromaCat.cpp" />
+    <ClCompile Include="DemoApp.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
