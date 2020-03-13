@@ -60,8 +60,8 @@ HRESULT DemoApp::Initialize()
             WS_OVERLAPPEDWINDOW,
             CW_USEDEFAULT,
             CW_USEDEFAULT,
-            static_cast<UINT>(600),
-            static_cast<UINT>(400),
+            static_cast<UINT>(600.f),
+            static_cast<UINT>(400.f),
             NULL,
             NULL,
             HINST_THISCOMPONENT,
@@ -328,7 +328,7 @@ void DemoApp::OnResize(UINT width, UINT height)
     }
 }
 
-void main()
+int main()
 {
     DemoApp app;
     app.Initialize();

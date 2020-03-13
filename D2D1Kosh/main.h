@@ -30,7 +30,6 @@ inline void SafeRelease(
     }
 }
 
-
 #ifndef Assert
 #if defined( DEBUG ) || defined( _DEBUG )
 #define Assert(b) do {if (!(b)) {OutputDebugStringA("Assert: " #b "\n");}} while(0)
@@ -38,8 +37,6 @@ inline void SafeRelease(
 #define Assert(b)
 #endif //DEBUG || _DEBUG
 #endif
-
-
 
 #ifndef HINST_THISCOMPONENT
 EXTERN_C IMAGE_DOS_HEADER __ImageBase;
